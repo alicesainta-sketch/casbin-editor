@@ -1,4 +1,4 @@
-import React, { isValidElement, ReactNode, useEffect, useRef, useState } from 'react';
+import React, { isValidElement, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import { defaultCustomConfig, defaultEnforceContext, example } from '@/app/components/editor/casbin-mode/example';
 import { ShareFormat } from '@/app/components/hooks/useShareInfo';
 import { defaultEnforceContextData } from '@/app/components/hooks/useSetupEnforceContext';
@@ -23,10 +23,11 @@ export default function useIndex() {
     loadedFromUrl?: boolean;
   }>({});
 
-  const setSelectedEngine = (engine: EngineType) => {
+  // Persist selected engine for future sessions.
+  const setSelectedEngine = useCallback((engine: EngineType) => {
     setSelectedEngineState(engine);
     localStorage.setItem('selectedEngine', engine);
-  };
+  }, []);
 
   function setPolicyPersistent(text: string): void {
     setPolicy(text);
@@ -49,7 +50,8 @@ export default function useIndex() {
     setEnforceContextData(new Map(map));
   }
 
-  const updateAllStates = (newModelKind: string, shared?: ShareFormat) => {
+  // Helper: apply model/policy/request/custom config state in one place.
+  const updateAllStates = useCallback((newModelKind: string, shared?: ShareFormat) => {
     const modelKindToUse = shared?.modelKind && shared.modelKind in example ? shared.modelKind : newModelKind;
 
     setModelKind(modelKindToUse);
@@ -67,7 +69,7 @@ export default function useIndex() {
     if (shared?.comparisonEngines) {
       setComparisonEngines(shared.comparisonEngines as EngineType[]);
     }
-  };
+  }, [setSelectedEngine]);
 
   useEffect(() => {
     // Check for URL query parameter for model selection
@@ -98,13 +100,13 @@ export default function useIndex() {
           return setEcho(<div className="text-red-500">Failed to load: {error}</div>);
         });
     }
-  }, []);
+  }, [updateAllStates]);
 
   useEffect(() => {
     if (!modelText && !policy && !request && !loadState.current.loadedFromUrl) {
       updateAllStates(modelKind);
     }
-  }, [modelKind, modelText, policy, request]);
+  }, [modelKind, modelText, policy, request, updateAllStates]);
 
   function handleShare(v: ReactNode | string) {
     if (isValidElement(v)) {

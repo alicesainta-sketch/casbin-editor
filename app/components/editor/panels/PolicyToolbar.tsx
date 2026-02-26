@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { clsx } from 'clsx';
 import { FileUploadButton } from '@/app/components/editor/common/FileUploadButton';
 import { EngineSelector } from '@/app/components/editor/common/EngineSelector';
 import { EndpointSelector } from '@/app/components/editor/common/EndpointSelector';
@@ -28,6 +29,13 @@ export const PolicyToolbar: React.FC<PolicyToolbarProps> = ({
   const toolbarRef = useRef<HTMLDivElement | null>(null);
   const [compactMode, setCompactMode] = useState(false);
   const { t } = useLang();
+  const designButtonClassName = clsx(
+    'px-3 py-1.5 rounded-lg',
+    'border border-primary text-primary bg-secondary',
+    'hover:bg-primary hover:text-primary-foreground',
+    'transition-all duration-200 shadow-sm hover:shadow-md',
+    'font-medium text-sm whitespace-nowrap',
+  );
 
   // Responsive behavior - use compact mode when space is tight
   useEffect(() => {
@@ -59,7 +67,7 @@ export const PolicyToolbar: React.FC<PolicyToolbarProps> = ({
         <button
           type="button"
           onClick={onDesignPolicy}
-          className="px-3 py-1.5 rounded-lg border border-primary text-primary bg-secondary hover:bg-primary hover:text-primary-foreground transition-all duration-200 shadow-sm hover:shadow-md font-medium text-sm whitespace-nowrap"
+          className={designButtonClassName}
         >
           {t('AI Policy Design')}
         </button>
