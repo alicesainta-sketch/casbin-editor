@@ -92,7 +92,7 @@ export const EditorScreen = () => {
     return message;
   }, [t, lang, customConfig]);
   const handlePolicyDesign = useCallback(() => {
-    // 核心逻辑：基于当前页面上下文生成提示词并打开 AI 侧边栏
+    // Core logic: build prompt from current context and open the AI side panel
     const prompt = buildPolicyDesignPrompt({ t, lang, customConfig });
     openDrawerWithMessage(prompt);
   }, [t, lang, customConfig, openDrawerWithMessage]);

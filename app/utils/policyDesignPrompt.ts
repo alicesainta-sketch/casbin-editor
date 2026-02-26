@@ -14,12 +14,12 @@ Key Casbin notes:
 - Keep the rule set minimal and consistent with the request definition.
 `;
 
-// 关键函数用途：生成用于 AI 设计 Policy 的提示词，并复用页面内容提取结果作为上下文。
+// Key function: build the prompt for AI policy design using extracted page context.
 export const buildPolicyDesignPrompt = ({ t, lang, customConfig }: BuildPolicyDesignPromptParams) => {
-  // 核心逻辑说明：通过页面内容抽取拼装上下文，避免重复实现解析逻辑。
+  // Core logic: reuse content extraction to assemble context and avoid duplicate parsing.
   const { extractedContent } = extractPageContent('policy', t, lang, customConfig);
 
-  // 边界条件：当上下文缺失时（如“未找到”），提示 AI 视为空并保守推断。
+  // Edge case: if context is missing (e.g. "No ... found"), treat it as empty and be conservative.
   return [
     `Please answer in ${lang} language.`,
     `You are a Casbin policy expert.`,

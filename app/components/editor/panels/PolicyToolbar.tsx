@@ -55,7 +55,7 @@ export const PolicyToolbar: React.FC<PolicyToolbarProps> = ({
         <div className="font-normal text-base">
           <FileUploadButton onFileContent={setPolicyPersistent} accept=".csv" />
         </div>
-        {/* 关键入口：触发 AI 设计策略（由上层负责拼装提示词并打开侧边栏） */}
+        {/* Primary entry: trigger AI policy design (parent builds prompt and opens the side panel) */}
         <button
           type="button"
           onClick={onDesignPolicy}
