@@ -63,6 +63,7 @@
   "No policy relationships found": "No policy relationships found",
   "(empty)": "(trống)",
   "Ask AI": "Hỏi AI",
+  "AI Policy Design": "AI Policy Design",
   "Auto": "Tự động",
   "Gallery description": "Khám phá và chọn từ bộ sưu tập mô hình kiểm soát truy cập của chúng tôi",
   "Copyright": "Bản quyền © {year} Cộng tác viên Casbin.",
@@ -134,3 +135,4 @@
   "Search models": "Tìm kiếm mô hình...",
   "Search placeholder": "Tìm kiếm theo tên, mô tả hoặc danh mục..."
 }
+

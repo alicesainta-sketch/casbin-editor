@@ -63,6 +63,7 @@
   "No policy relationships found": "No policy relationships found",
   "(empty)": "(空)",
   "Ask AI": "詢問 AI",
+  "AI Policy Design": "AI 設計策略",
   "Auto": "自動",
   "Gallery description": "從我們的訪問控制模型集合中瀏覽和選擇",
   "Copyright": "版權所有 © {year} Casbin 貢獻者。",
@@ -134,3 +135,4 @@
   "Search models": "搜尋模型...",
   "Search placeholder": "按名稱、描述或類別搜尋..."
 }
+

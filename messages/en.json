@@ -66,6 +66,7 @@
   "Configuration downloaded successfully": "Configuration downloaded successfully",
   "Failed to download configuration": "Failed to download configuration",
   "Ask AI": "Ask AI",
+  "AI Policy Design": "AI Policy Design",
   "Auto": "Auto",
   "Gallery description": "Explore and select from our collection of access control models",
   "Copyright": "Copyright © {year} Casbin contributors.",
@@ -140,3 +141,4 @@
   "Custom Configuration": "Custom Configuration",
   "Open in editor to see enforcement results for the example request": "Open in editor to see enforcement results for the example request"
 }
+

@@ -63,6 +63,7 @@
   "No policy relationships found": "No policy relationships found",
   "(empty)": "(비어 있음)",
   "Ask AI": "AI에게 물어보기",
+  "AI Policy Design": "AI Policy Design",
   "Auto": "자동",
   "Gallery description": "액세스 제어 모델 컬렉션에서 탐색하고 선택하세요",
   "Copyright": "저작권 © {year} Casbin 기여자.",
@@ -134,3 +135,4 @@
   "Search models": "모델 검색...",
   "Search placeholder": "이름, 설명 또는 카테고리로 검색..."
 }
+

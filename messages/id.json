@@ -63,6 +63,7 @@
   "No policy relationships found": "No policy relationships found",
   "(empty)": "(kosong)",
   "Ask AI": "Tanya AI",
+  "AI Policy Design": "AI Policy Design",
   "Auto": "Otomatis",
   "Gallery description": "Jelajahi dan pilih dari koleksi model kontrol akses kami",
   "Copyright": "Hak Cipta © {year} Kontributor Casbin.",
@@ -134,3 +135,4 @@
   "Search models": "Cari model...",
   "Search placeholder": "Cari berdasarkan nama, deskripsi, atau kategori..."
 }
+

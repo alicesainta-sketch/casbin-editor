@@ -4,6 +4,7 @@ import { EngineSelector } from '@/app/components/editor/common/EngineSelector';
 import { EndpointSelector } from '@/app/components/editor/common/EndpointSelector';
 import type { EngineType } from '@/app/config/engineConfig';
 import type { VersionInfo } from '@/app/components/hooks/useRemoteEnforcer';
+import { useLang } from '@/app/context/LangContext';
 
 interface PolicyToolbarProps {
   setPolicyPersistent: (content: string) => void;
@@ -12,6 +13,7 @@ interface PolicyToolbarProps {
   handleEngineChange: (newPrimary: EngineType, newComparison: EngineType[]) => void;
   versions: Record<EngineType, VersionInfo>;
   engineGithubLinks: Record<EngineType, string>;
+  onDesignPolicy: () => void;
 }
 
 export const PolicyToolbar: React.FC<PolicyToolbarProps> = ({
@@ -21,9 +23,11 @@ export const PolicyToolbar: React.FC<PolicyToolbarProps> = ({
   handleEngineChange,
   versions,
   engineGithubLinks,
+  onDesignPolicy,
 }) => {
   const toolbarRef = useRef<HTMLDivElement | null>(null);
   const [compactMode, setCompactMode] = useState(false);
+  const { t } = useLang();
 
   // Responsive behavior - use compact mode when space is tight
   useEffect(() => {
@@ -51,6 +55,14 @@ export const PolicyToolbar: React.FC<PolicyToolbarProps> = ({
         <div className="font-normal text-base">
           <FileUploadButton onFileContent={setPolicyPersistent} accept=".csv" />
         </div>
+        {/* 关键入口：触发 AI 设计策略（由上层负责拼装提示词并打开侧边栏） */}
+        <button
+          type="button"
+          onClick={onDesignPolicy}
+          className="px-3 py-1.5 rounded-lg border border-primary text-primary bg-secondary hover:bg-primary hover:text-primary-foreground transition-all duration-200 shadow-sm hover:shadow-md font-medium text-sm whitespace-nowrap"
+        >
+          {t('AI Policy Design')}
+        </button>
         <EndpointSelector />
         <EngineSelector
           selectedEngine={selectedEngine}

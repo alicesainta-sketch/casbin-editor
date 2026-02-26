@@ -32,6 +32,7 @@ import { extractPageContent } from '@/app/utils/contentExtractor';
 import { formatEngineResults, ResultsMap } from '@/app/utils/resultFormatter';
 import { casbinLinter, createPolicyLinter, requestLinter } from '@/app/utils/casbinLinter';
 import { isInsideIframe } from '@/app/utils/iframeDetector';
+import { buildPolicyDesignPrompt } from '@/app/utils/policyDesignPrompt';
 import { useLang } from '@/app/context/LangContext';
 import { useAutoCarousel } from '@/app/context/AutoCarouselContext';
 import type { EngineType } from '@/app/config/engineConfig';
@@ -90,6 +91,11 @@ export const EditorScreen = () => {
     const { message } = extractPageContent(boxType, t, lang, customConfig);
     return message;
   }, [t, lang, customConfig]);
+  const handlePolicyDesign = useCallback(() => {
+    // 核心逻辑：基于当前页面上下文生成提示词并打开 AI 侧边栏
+    const prompt = buildPolicyDesignPrompt({ t, lang, customConfig });
+    openDrawerWithMessage(prompt);
+  }, [t, lang, customConfig, openDrawerWithMessage]);
 
   // Wrapper functions that disable auto carousel before updating editor content
   const handleModelTextChange = useCallback((value: string) => {
@@ -387,6 +393,7 @@ export const EditorScreen = () => {
                         handleEngineChange={handleEngineChange}
                         versions={versions}
                         engineGithubLinks={engineGithubLinks}
+                        onDesignPolicy={handlePolicyDesign}
                       />
                     </div>
                     <div className="flex-grow overflow-auto h-full rounded-lg border border-border shadow-sm bg-white dark:bg-slate-800">
@@ -604,6 +611,7 @@ export const EditorScreen = () => {
                     handleEngineChange={handleEngineChange}
                     versions={versions}
                     engineGithubLinks={engineGithubLinks}
+                    onDesignPolicy={handlePolicyDesign}
                   />
                 </div>
                 <div className="flex-grow overflow-auto h-full rounded-lg border border-border shadow-sm bg-white dark:bg-slate-800">

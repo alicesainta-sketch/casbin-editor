@@ -1,11 +1,15 @@
 const cleanContent = (content: string, t?: (key: string) => string) => {
   let result = content.replace(/^\d+\s+/gm, '');
   
-  // Remove translated "Ask AI" and "Explain it" if translation function is provided
+  // Remove translated button labels to avoid polluting extracted content
   if (t) {
     const askAI = t('Ask AI');
     const explainIt = t('Explain it');
-    result = result.replace(new RegExp(askAI, 'g'), '').replace(new RegExp(explainIt, 'g'), '');
+    const designPolicy = t('AI Policy Design');
+    result = result
+      .replace(new RegExp(askAI, 'g'), '')
+      .replace(new RegExp(explainIt, 'g'), '')
+      .replace(new RegExp(designPolicy, 'g'), '');
   }
   
   return result.trim();

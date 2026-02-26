@@ -63,6 +63,7 @@
   "No policy relationships found": "Отношения политики не найдены",
   "(empty)": "(пусто)",
   "Ask AI": "Спросить ИИ",
+  "AI Policy Design": "AI Policy Design",
   "Auto": "Авто",
   "Gallery description": "Изучите и выберите из нашей коллекции моделей контроля доступа",
   "Copyright": "Авторские права © {year} Участники Casbin.",
@@ -134,3 +135,4 @@
   "Search models": "Поиск моделей...",
   "Search placeholder": "Поиск по названию, описанию или категории..."
 }
+

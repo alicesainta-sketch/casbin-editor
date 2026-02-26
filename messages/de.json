@@ -63,6 +63,7 @@
   "No policy relationships found": "No policy relationships found",
   "(empty)": "(leer)",
   "Ask AI": "KI fragen",
+  "AI Policy Design": "AI Policy Design",
   "Auto": "Auto",
   "Gallery description": "Durchsuchen und wählen Sie aus unserer Sammlung von Zugriffskontrollmodellen",
   "Copyright": "Copyright © {year} Casbin-Mitwirkende.",
@@ -134,3 +135,4 @@
   "Search models": "Modelle suchen...",
   "Search placeholder": "Nach Name, Beschreibung oder Kategorie suchen..."
 }
+

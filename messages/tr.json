@@ -63,6 +63,7 @@
   "No policy relationships found": "Politika ilişkisi bulunamadı",
   "(empty)": "(boş)",
   "Ask AI": "Yapay Zekaya Sor",
+  "AI Policy Design": "AI Policy Design",
   "Auto": "Otomatik",
   "Gallery description": "Erişim kontrol modelleri koleksiyonumuzu keşfedin ve seçin",
   "Copyright": "Telif hakkı © {year} Casbin katkıda bulunanlar.",
@@ -134,3 +135,4 @@
   "Search models": "Model ara...",
   "Search placeholder": "Ada, açıklama veya kategoriye göre ara..."
 }
+
